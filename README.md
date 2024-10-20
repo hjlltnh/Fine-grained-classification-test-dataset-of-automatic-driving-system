@@ -152,6 +152,7 @@ python main.py
 For more complete environmental setup steps, please refer to the following link:  
 https://blog.csdn.net/weixin_46336532/article/details/135017708，  
 https://github.com/guardstrikelab/carla_apollo_bridge/blob/master/docs/GettingStarted.md  
+
 The subsequent steps for use are:
 1.Open the command prompt window,  
 Open the Apollo container and run it,
@@ -190,9 +191,10 @@ Next, experiments can be conducted.
 Place the timestamp file in the path/apollo/modules/carla_bridge,copy the log file of the timestamp file corresponding to the dataset you want to use, such as \ recording.log, to a certain location in the Carla container， We need to first open the Carla container,and then
 ```
 docker cp /apollo/modules/carla_bridge/xxxxxxxx_recording.log carla-simulator-1:/home/
-Copy the code folder to the path/aolto/modules/carla_bridge, then open a new command prompt, enter the Apollo container,
 ```
-cd /aolto/modules/carla_bridge/code
+Copy the code folder to the path/apollo/modules/carla_bridge, then open a new command prompt, enter the Apollo container,
+```
+cd /apollo/modules/carla_bridge/code
 ```
 and run
 ```
@@ -201,4 +203,41 @@ python replay.py
 The other files with timestamps record the problems that occurred with Apollo, the information data of the cars controlled by Apollo, and the actor data in this dataset.
 
 ## Citation
+```
+@inproceedings{dosovitskiy2017carla,
+  title={CARLA: An open urban driving simulator},
+  author={Dosovitskiy, Alexey and Ros, German and Codevilla, Felipe and Lopez, Antonio and Koltun, Vladlen},
+  booktitle={Conference on robot learning},
+  pages={1--16},
+  year={2017},
+  organization={PMLR}
+}
+```
+```
+@inproceedings{huang2018apolloscape,
+  title={The apolloscape dataset for autonomous driving},
+  author={Huang, Xinyu and Cheng, Xinjing and Geng, Qichuan and Cao, Binbin and Zhou, Dingfu and Wang, Peng and Lin, Yuanqing and Yang, Ruigang},
+  booktitle={Proceedings of the IEEE conference on computer vision and pattern recognition workshops},
+  pages={954--960},
+  year={2018}
+}
+```
+```
+https://blog.csdn.net/weixin_46336532/article/details/135017708
+```
+```
+https://github.com/guardstrikelab/carla_apollo_bridge/blob/master/docs/GettingStarted.md  
+```
+```
+https://blog.csdn.net/condom10010/article/details/130386323
+```
+```
+https://zhuanlan.zhihu.com/p/369780423
+```
+```
+https://blog.csdn.net/weixin_44177594/article/details/126890190?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522BBE5EE0F-D9FF-40C4-8659-EAD3F37C8A28%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=BBE5EE0F-D9FF-40C4-8659-EAD3F37C8A28&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-10-126890190-null-null.142^v100^pc_search_result_base9&utm_term=carla%E5%9C%B0%E5%9B%BE%E8%BD%ACapollo&spm=1018.2226.3001.4187
+```
+```
+https://blog.csdn.net/weixin_44177594/article/details/126890190?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522BBE5EE0F-D9FF-40C4-8659-EAD3F37C8A28%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=BBE5EE0F-D9FF-40C4-8659-EAD3F37C8A28&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-10-126890190-null-null.142^v100^pc_search_result_base9&utm_term=carla%E5%9C%B0%E5%9B%BE%E8%BD%ACapollo&spm=1018.2226.3001.4187
+```
 
