@@ -60,15 +60,18 @@ sudo apt-get install -y nvidia-docker2
 sudo systemctl restart docker
 ```
  * docker-compose
- ```
-     sudo curl -L "https://github.com/docker/compose/releases/download/v2.0.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+ sudo curl -L "https://github.com/docker/compose/releases/download/v2.0.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 * Change File Permission
 ```
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-#### Build And Run Apollo
+#### Build And Run Apollo  
+Refer to these link：  
+https://blog.csdn.net/weixin_46336532/article/details/135017708,  
+https://github.com/guardstrikelab/carla_apollo_bridge/blob/master/docs/GettingStarted.md  
 * Clone apollo v8.0.0
 ```
 # Using SSH
@@ -91,7 +94,7 @@ Upon successful execution, you will see the following message
 ```
 [ OK ] Congratulations! You have successfully finished setting up Apollo Dev Environment.
 [ OK ] To login into the newly created apollo_dev_lei container, please run the following command:
-[ OK ]   bash docker/scripts/dev_into.sh
+[ OK ] bash docker/scripts/dev_into.sh
 [ OK ] Enjoy!
 ```
 Above If you occured error as "ERROR: Config value 'cuda' is not defined in any .rc file",you can try
@@ -136,8 +139,10 @@ cd carla_apollo_bridge/carla_scripts
 ```
 #### Run carla_apollo_bridge
 * Copy the src folder into Apollo container
+```
 docker cp carla_bridge <apollo_container_name>:/apollo/modules/carla_bridge
-* Install carla_bridge
+```
+* Install carla_bridge  
 Enter the Apollo container and run:
 ```
 cd /apollo/modules/carla_bridge
@@ -149,19 +154,16 @@ source ~/.bashrc
 ```
 python main.py
 ```
-For more complete environmental setup steps, please refer to the following link:  
-https://blog.csdn.net/weixin_46336532/article/details/135017708，  
-https://github.com/guardstrikelab/carla_apollo_bridge/blob/master/docs/GettingStarted.md  
 
-The subsequent steps for use are:
+The subsequent steps for use are:  
 1.Open the command prompt window,  
 Open the Apollo container and run it,
 ```
-Docker start apollo-dev-username/Apollo container name  
-Docker exec -it apollo-dev-username/Apollo container name /bin/bash
+Docker start apollo-dev-[username]/Apollo container name  
+Docker exec -it apollo-dev-[username]/Apollo container name /bin/bash
 ./scripts/bootstrap.sh
 ```
-And enter it in the website area of the browser to Open the Dreamview website.
+And enter it in the website area of the browser to open the Dreamview website.
 ```
 http://localhost:8888/
 ```
@@ -169,12 +171,12 @@ If you want to close Dreamview, run
 ```
 ./scripts/bootstrap.sh stop
 ```
-Open a new command prompt window:
+Open a new command prompt window:  
 Open the Carla container:
 ```
 docker start carla-simulator-1/carla container name
 ```
-Open a new command-line prompt window: run
+Open a new command-line prompt window, run
 ```
 docker exec -it apollo-dev-username/Apollo container name /bin/bash
 ```
@@ -185,14 +187,14 @@ python main.py
 ```
 If an error occurs, you can try using the statement: 
 ```
-source/Apollo/cyber/setup. bash
+source /Apollo/cyber/setup.bash
 ```
 Next, experiments can be conducted.
-Place the timestamp file in the path/apollo/modules/carla_bridge,copy the log file of the timestamp file corresponding to the dataset you want to use, such as \ recording.log, to a certain location in the Carla container， We need to first open the Carla container,and then
+Place the timestamp file in the path:/apollo/modules/carla_bridge, copy the log file of the timestamp file corresponding to the dataset you want to use, such as xxxxxxxx_recording.log, to a certain location in the Carla container， We need to first open the Carla container,and then
 ```
 docker cp /apollo/modules/carla_bridge/xxxxxxxx_recording.log carla-simulator-1:/home/
 ```
-Copy the code folder to the path/apollo/modules/carla_bridge, then open a new command prompt, enter the Apollo container,
+Copy the code folder to the path:/apollo/modules/carla_bridge, then open a new command prompt, enter the Apollo container,
 ```
 cd /apollo/modules/carla_bridge/code
 ```
