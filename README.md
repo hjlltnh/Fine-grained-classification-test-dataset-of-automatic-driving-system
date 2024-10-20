@@ -27,7 +27,7 @@ Some example videos are shown below:
 
 ### Tunnel
 
-## Data-download
+## Data download
 
 ### Installation of Bridge
 
