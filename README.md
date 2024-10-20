@@ -30,6 +30,7 @@ Some example videos are shown below:
 ## Data download
 
 ### Installation of Bridge
+It was tested with Carla 0.9.14 and the Apollo v8.0.0 (v8.0.0),the operating system uses Ubuntu 20.04.06.
 
 #### Prerequisites
 
@@ -119,7 +120,35 @@ Finally, open the link in your browser
 ```
 http://localhost:8888/
 ```
+#### Run Carla
+* Clone the carla_apollo_bridge project outside Apollo container
+```
+# Using SSH
+git clone git@github.com:guardstrikelab/carla_apollo_bridge.git
 
+#Using HTTPS
+git clone https://github.com/guardstrikelab/carla_apollo_bridge.git
+```
+Pull carla image and run
+```
+cd carla_apollo_bridge/carla_scripts
+./docker_run_carla.sh
+```
+#### Run carla_apollo_bridge
+* Copy the src folder into Apollo container
+docker cp carla_bridge <apollo_container_name>:/apollo/modules/carla_bridge
+* Install carla_bridge
+Enter the Apollo container and run:
+```
+cd /apollo/modules/carla_bridge
+chmod +x install.sh
+./install.sh
+source ~/.bashrc
+```
+* Start the bridge
+```
+python main.py
+```
 
 
 
