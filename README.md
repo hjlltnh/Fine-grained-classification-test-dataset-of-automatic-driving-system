@@ -149,9 +149,56 @@ source ~/.bashrc
 ```
 python main.py
 ```
-
-
-
-
+For more complete environmental setup steps, please refer to the following link:  
+https://blog.csdn.net/weixin_46336532/article/details/135017708，  
+https://github.com/guardstrikelab/carla_apollo_bridge/blob/master/docs/GettingStarted.md  
+The subsequent steps for use are:
+1.Open the command prompt window,  
+Open the Apollo container and run it,
+```
+Docker start apollo-dev-username/Apollo container name  
+Docker exec -it apollo-dev-username/Apollo container name /bin/bash
+./scripts/bootstrap.sh
+```
+And enter it in the website area of the browser to Open the Dreamview website.
+```
+http://localhost:8888/
+```
+If you want to close Dreamview, run
+```
+./scripts/bootstrap.sh stop
+```
+Open a new command prompt window:
+Open the Carla container:
+```
+docker start carla-simulator-1/carla container name
+```
+Open a new command-line prompt window: run
+```
+docker exec -it apollo-dev-username/Apollo container name /bin/bash
+```
+Run the bridge
+```
+cd /apollo/modules/carla_bridge  
+python main.py
+```
+If an error occurs, you can try using the statement: 
+```
+source/Apollo/cyber/setup. bash
+```
+Next, experiments can be conducted.
+Place the timestamp file in the path/apollo/modules/carla_bridge,copy the log file of the timestamp file corresponding to the dataset you want to use, such as \ recording.log, to a certain location in the Carla container， We need to first open the Carla container,and then
+```
+docker cp /apollo/modules/carla_bridge/xxxxxxxx_recording.log carla-simulator-1:/home/
+Copy the code folder to the path/aolto/modules/carla_bridge, then open a new command prompt, enter the Apollo container,
+```
+cd /aolto/modules/carla_bridge/code
+```
+and run
+```
+python replay.py
+```
+The other files with timestamps record the problems that occurred with Apollo, the information data of the cars controlled by Apollo, and the actor data in this dataset.
 
 ## Citation
+
